@@ -1,25 +1,60 @@
 // components/Navbar.tsx
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import Logo from './Logo';
 
 export default function Navbar() {
-  return (
-    <nav className="w-full flex justify-between items-center py-4 px-6 shadow-md bg-white">
- 
+  const router = useRouter();
 
-      {/* Menu */}     {/* Logo */}
-        <Image src="/cbsv-logo.svg" alt="Calvary Logo" width={200} height={200} />
-      <ul className="hidden md:flex space-x-6 text-gray-800 text-sm font-medium">
-        <li><button href="/">Home</button></li>
-        <li><Link href="/visit">Visit Us</Link></li>
-        <li><Link href="/how-to-be-saved">How to Be Saved</Link></li>
-        <li><Link href="/watch">Watch Services</Link></li>
-        <li><Link href="/beliefs">What We Believe</Link></li>
-        <li><Link href="/contact">Contact</Link></li>
-        <li><Link href="/more">More</Link></li>
-      </ul>
+  return (
+    <nav className="w-full flex items-center justify-center py-4 px-6 shadow-md bg-calvary-blue">
+      {/* Navigation Container */}
+      <div className="hidden md:flex items-center gap-6">
+        <Logo />
+        <button 
+          onClick={() => router.push('/')}
+          className="text-white hover:text-gray-200 transition-colors duration-200 bg-transparent border-none outline-none mx-2"
+        >
+          Home
+        </button>
+        <button 
+          onClick={() => router.push('/visit')}
+          className="text-white hover:text-gray-200 transition-colors duration-200 bg-transparent border-none outline-none mx-2"
+        >
+          Visit Us
+        </button>
+        <button 
+          onClick={() => router.push('/how-to-be-saved')}
+          className="text-white hover:text-gray-200 transition-colors duration-200 bg-transparent border-none outline-none mx-2"
+        >
+          How to Be Saved
+        </button>
+        <button 
+          onClick={() => router.push('/watch')}
+          className="text-white hover:text-gray-200 transition-colors duration-200 bg-transparent border-none outline-none mx-2"
+        >
+          Watch Services
+        </button>
+        <button 
+          onClick={() => router.push('/beliefs')}
+          className="text-white hover:text-gray-200 transition-colors duration-200 bg-transparent border-none outline-none mx-2"
+        >
+          What We Believe
+        </button>
+        <button 
+          onClick={() => router.push('/contact')}
+          className="text-white hover:text-gray-200 transition-colors duration-200 bg-transparent border-none outline-none mx-2"
+        >
+          Contact
+        </button>
+        <button 
+          onClick={() => router.push('/more')}
+          className="text-white hover:text-gray-200 transition-colors duration-200 bg-transparent border-none outline-none mx-2"
+        >
+          More
+        </button>
+      </div>
     </nav>
   );
 }
